@@ -26,9 +26,10 @@ impl StarkHash for Pedersen {
             });
         Felt(PedersenStarkCurve::hash(&current_hash, &data_len.0))
     }
-    
+
+    /// Computes the Pedersen hash of a single Felt
     fn hash_single(felt: &Felt) -> Felt {
-        todo!()
+        Felt(PedersenStarkCurve::hash(&Felt::from(0).0, &felt.0))
     }
 }
 
